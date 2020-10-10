@@ -1,0 +1,23 @@
+{% extends "resumeapp/userbase.html" %}
+
+{% block body_block %}
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1 align="center" ><em><b>Registration</b></em></h1>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit"  class="btn btn-primary value="create">
+                </form>
+            </div>
+            <div class="col-3"></div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

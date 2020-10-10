@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+{% extends "resumeapp/base.html" %}
+
+{% block body_block %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+               <form method="post">
+                   {% csrf_token %}
+                    {{search.as_p}}
+                    <input type="submit" class="btn btn-primary" value="create">
+               </form>
+            </div>
+            <div class="col-6"></div>
+        </div>
+    </div>
+    <div class="row">
+            {%for res in resume%}
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                <img src="{{res.image.url}}" class="card-img-top" alt="..." height="200px" width="100px" >
+                <div class="card-body">
+                    <b>Name : {{res.Full_Name}}</b><br>
+                    <b>qualification : {{res.lastdegree}}</b><br>
+                    <b>Email :{{res.Email}}</b><br>
+                    <a href="{%url "viewresume" res.id %}" class="btn btn-primary">View Details</a>
+
+
+                </div>
+    </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
